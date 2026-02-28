@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architect-X | Master the Machine</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
+
+        body {
+            margin: 0;
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Space+Grotesk', sans-serif;
+            overflow-x: hidden;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 5rem 10%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .neon-text {
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            color: #00ffff;
+        }
+
+        .cta-button {
+            background: linear-gradient(90deg, #00ffff, #0066ff);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+        }
+        .disclaimer-warning{
+          text-align: center; 
+           
+        }
+
+        .hidden-content { opacity: 0; transform: translateY(30px); }
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full p-6 flex justify-between items-center z-50">
+        <div class="text-2xl font-bold tracking-tighter">Coding Mentorship Program <span class="text-cyan-400">-X</span></div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest">
+            <a href="#problem" class="hover:text-cyan-400">The Trap</a>
+            <a href="#transformation" class="hover:text-cyan-400">The Shift</a>
+            <a href="#curriculum" class="hover:text-cyan-400">The Code</a>
+            <a href="#testimonials" class="hover:text-cyan-400">Proof</a>
+        </div>
+        <button class="cta-button text-xs py-2 px-6">Apply Now</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section">
+        <div class="max-w-3xl">
+            <h1 class="text-7xl font-bold leading-tight mb-6">Master the <span class="neon-text">Machine</span>.</h1>
+            <p class="text-xl text-gray-400 mb-8 leading-relaxed">Stop following tutorials. Start building systems. This Program is a 12-week intensive mentorship for developers who want to reach Senior status and beyond.</p>
+            <div class="flex space-x-4">
+                <button class="cta-button">Initiate Protocol</button>
+                <button class="border border-white/20 px-8 py-4 rounded-full hover:bg-white/10 transition">View Syllabus</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points: Exploding Particles & Noise -->
+    <section id="problem" class="section">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="glass-card hidden-content">
+                <h2 class="text-3xl font-bold mb-6 text-red-400 uppercase tracking-tighter italic">The Developer Trap</h2>
+                <ul class="space-y-4 text-gray-300">
+                    <li class="flex items-start"><span class="mr-2">✕</span> Stuck in "Tutorial Hell" without building original projects.</li>
+                    <li class="flex items-start"><span class="mr-2">✕</span> Shaking with anxiety during senior-level system design interviews.</li>
+                    <li class="flex items-start"><span class="mr-2">✕</span> Writing code that works, but isn't scalable or maintainable.</li>
+                    <li class="flex items-start"><span class="mr-2">✕</span> Plateaud salary while others zoom past to Lead roles.</li>
+                </ul>
+            </div>
+            <div></div>
+        </div>
+    </section>
+
+    <!-- Transformation: Morphing Geometry -->
+    <section id="transformation" class="section items-end text-right">
+        <div class="max-w-2xl">
+            <h2 class="text-5xl font-bold mb-6">The <span class="neon-text">Transformation</span></h2>
+            <p class="text-xl text-gray-400 mb-8">We don't just teach syntax. We rewrite your mental architecture. You go from being a "Coder" to a "Software Architect."</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-card p-4"><div class="text-cyan-400 text-2xl font-bold">12+</div><div class="text-xs text-gray-500 uppercase">Live Projects</div></div>
+                <div class="glass-card p-4"><div class="text-cyan-400 text-2xl font-bold">1:1</div><div class="text-xs text-gray-500 uppercase">Code Reviews</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack / Depth Parallax Section -->
+    <section id="curriculum" class="section">
+        <h2 class="text-4xl font-bold mb-12 text-center">Engineered for Mastery</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass-card hidden-content">
+                <h3 class="font-bold text-xl mb-4 text-cyan-400">01. Deep Core</h3>
+                <p class="text-gray-400 text-sm">Advanced Data Structures, Memory Management, and Algorithmic Efficiency.</p>
+            </div>
+            <div class="glass-card hidden-content" style="transition-delay: 0.2s;">
+                <h3 class="font-bold text-xl mb-4 text-cyan-400">02. Distributed Systems</h3>
+                <p class="text-gray-400 text-sm">Scalable Microservices, Event Sourcing, and High-Availability Architecture.</p>
+            </div>
+            <div class="glass-card hidden-content" style="transition-delay: 0.4s;">
+                <h3 class="font-bold text-xl mb-4 text-cyan-400">03. The Lead Mindset</h3>
+                <p class="text-gray-400 text-sm">Managing technical debt, leading teams, and architecting the future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section bg-black/40">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold">The <span class="neon-text">Alumni</span> Network</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="glass-card flex items-start space-x-6">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex-shrink-0"></div>
+                <div>
+                    <p class="italic text-gray-300 mb-4">"I went from a $90k Junior role to a $180k Senior Lead at a FinTech startup in exactly 4 months after Architect-X."</p>
+                    <p class="font-bold">— Sarah K., Lead Dev</p>
+                </div>
+            </div>
+            <div class="glass-card flex items-start space-x-6">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-500 to-pink-600 flex-shrink-0"></div>
+                <div>
+                    <p class="italic text-gray-300 mb-4">"The system design modules are world-class. I finally understand the 'why' behind the 'how'."</p>
+                    <p class="font-bold">— Marcus V., Senior Architect</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">System Log <span class="text-cyan-400">FAQ</span></h2>
+            <div class="space-y-6">
+                <details class="glass-card cursor-pointer group">
+                    <summary class="font-bold list-none flex justify-between items-center">
+                        Is this for beginners?
+                        <span class="group-open:rotate-180 transition">↓</span>
+                    </summary>
+                    <p class="pt-4 text-gray-400 text-sm">No. This is for developers with at least 1-2 years of experience who want to bridge the gap to senior levels.</p>
+                </details>
+                <details class="glass-card cursor-pointer group">
+                    <summary class="font-bold list-none flex justify-between items-center">
+                        What is the time commitment?
+                        <span class="group-open:rotate-180 transition">↓</span>
+                    </summary>
+                    <p class="pt-4 text-gray-400 text-sm">Expect 10-15 hours per week including live sessions, deep dives, and project builds.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section text-center">
+        <div class="py-20">
+            <h2 class="text-6xl font-bold mb-8">Ready to <span class="neon-text">Ascend?</span></h2>
+            <p class="text-xl text-gray-400 mb-10">Next cohort starts in 14 days. 20 seats remaining.</p>
+            <button class="cta-button text-2xl px-12 py-6">Apply to Join Cohort 04</button>
+        </div>
+    </section>
+<h2 class="disclaimer-warning"> ⚠ This is a concept landing page created for portfolio demonstration purposes.</h>
+    <footer class="p-12 border-t border-white/10 text-center text-gray-600 text-sm">
+        &copy; 2024 Coding Mentorship. All rights reserved. // SYSTEM_STATUS: ONLINE
+    </footer>
+
+    <script>
+        // --- 3D ENGINE ---
+        let scene, camera, renderer, sphere, particleSystem, wireframeSphere, tunnel;
+        let clock = new THREE.Clock();
+        const container = document.getElementById('canvas-container');
+
+        function initThree() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0x00ffff, 2);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            // 1. Scroll Zoom Sphere & Liquid Distortion Orb
+            const geometry = new THREE.IcosahedronGeometry(2, 32);
+            const material = new THREE.MeshPhysicalMaterial({
+                color: 0x00ffff,
+                wireframe: false,
+                transparent: true,
+                opacity: 0.4,
+                roughness: 0.1,
+                transmission: 0.8, // Glass Refraction
+                thickness: 0.5,
+            });
+            sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+
+            // 2. Wireframe-to-Solid Reveal Layer
+            const wireGeo = new THREE.IcosahedronGeometry(2.1, 10);
+            const wireMat = new THREE.MeshBasicMaterial({ color: 0x0066ff, wireframe: true, transparent: true, opacity: 0.2 });
+            wireframeSphere = new THREE.Mesh(wireGeo, wireMat);
+            scene.add(wireframeSphere);
+
+            // 3. Exploding Particles / Reassembling Burst
+            const particlesCount = 2000;
+            const posArray = new Float32Array(particlesCount * 3);
+            for(let i=0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 15;
+            }
+            const particlesGeo = new THREE.BufferGeometry();
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+            const particlesMat = new THREE.PointsMaterial({ size: 0.02, color: 0x00ffff });
+            particleSystem = new THREE.Points(particlesGeo, particlesMat);
+            scene.add(particleSystem);
+
+            // 4. Infinite Tunnel
+            const tunnelGeo = new THREE.CylinderGeometry(5, 5, 50, 32, 1, true);
+            const tunnelMat = new THREE.MeshBasicMaterial({ color: 0x002244, wireframe: true, side: THREE.BackSide, transparent: true, opacity: 0 });
+            tunnel = new THREE.Mesh(tunnelGeo, tunnelMat);
+            tunnel.rotation.x = Math.PI / 2;
+            tunnel.position.z = -25;
+            scene.add(tunnel);
+
+            camera.position.z = 8;
+        }
+
+        // --- ANIMATION ENGINE ---
+        function animate() {
+            const elapsedTime = clock.getElapsedTime();
+
+            // Noise Vertex Breathing (Simulated)
+            sphere.scale.set(
+                1 + Math.sin(elapsedTime) * 0.05,
+                1 + Math.cos(elapsedTime * 0.8) * 0.05,
+                1 + Math.sin(elapsedTime * 1.2) * 0.05
+            );
+
+            // Orbiting Satellite Logic
+            particleSystem.rotation.y = elapsedTime * 0.05;
+            wireframeSphere.rotation.y = -elapsedTime * 0.1;
+            
+            // Cursor Gravity (Simplified)
+            particleSystem.position.x += (mouseX * 0.5 - particleSystem.position.x) * 0.05;
+            particleSystem.position.y += (-mouseY * 0.5 - particleSystem.position.y) * 0.05;
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+
+        // --- SCROLL LINKED TIMELINE ---
+        let mouseX = 0, mouseY = 0;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) - 0.5;
+            mouseY = (e.clientY / window.innerHeight) - 0.5;
+        });
+
+        function initGSAP() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const masterTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1.5,
+                }
+            });
+
+            // 1. Scroll Zoom & Dolly Push
+            masterTl.to(camera.position, { z: 2.5 }, 0);
+            
+            // 2. Rotation Accelerator
+            masterTl.to(sphere.rotation, { y: Math.PI * 4, x: Math.PI }, 0);
+            
+            // 3. Morphing Geometry Transition (Scale & Color)
+            masterTl.to(sphere.material.color, { r: 1, g: 0.2, b: 0.2 }, 0.2); // Red shift for Pain Points
+            masterTl.to(sphere.scale, { x: 0.5, y: 0.5, z: 0.5 }, 0.2);
+            
+            // 4. Exploding Particle Sphere (Spread out)
+            masterTl.to(particleSystem.scale, { x: 3, y: 3, z: 3 }, 0.3);
+            
+            // 5. Infinite Tunnel Reveal
+            masterTl.to(tunnel.material, { opacity: 0.5 }, 0.4);
+            masterTl.to(camera.position, { z: -10 }, 0.5); // Move into tunnel
+            
+            // 6. Section-Based Color Shift
+            masterTl.to(renderer.domElement, { filter: 'hue-rotate(90deg)' }, 0.6);
+            
+            // 7. Depth Parallax / Perspective Tilt
+            masterTl.to(scene.rotation, { y: 0.5, x: 0.2 }, 0.7);
+
+            // Content Fades
+            gsap.utils.toArray('.hidden-content').forEach(el => {
+                gsap.to(el, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                    }
+                });
+            });
+
+            // Split and Reveal Geometry
+            masterTl.to(wireframeSphere.scale, { x: 5, y: 5, z: 5, opacity: 0 }, 0.8);
+        }
+
+        // Initializers
+        window.addEventListener('load', () => {
+            initThree();
+            initGSAP();
+            animate();
+        });
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
