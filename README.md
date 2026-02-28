@@ -3,7 +3,7 @@
 A modern, responsive concept landing page built to showcase frontend design and development skills.
 
 ## 🚀 Live Demo
-🔗 https://hikedweb.github.io/coding-mentorship-landing-example/
+🔗 https://hikedweb.github.io/coding-mentorship-landingpage-example/
 
 ## 🛠 Tech Stack
 - HTML5
