@@ -1,2 +1,23 @@
-# coding-mentorship-landing-example
-Responsive coding mentorship example landing page built with HTML, CSS &amp; JavaScript to showcase modern UI development.
+# Coding Mentorship Landing Page
+
+A modern, responsive concept landing page built to showcase frontend design and development skills.
+
+## 🚀 Live Demo
+🔗 https://hikedweb.github.io/coding-mentorship-landing-example/
+
+## 🛠 Tech Stack
+- HTML5
+- CSS3
+- JavaScript 
+
+## ✨ Features
+- Fully responsive design
+- Clean UI layout
+- Smooth scrolling
+- Testimonial section (UI demonstration)
+
+
+## 📌 Project Type
+Concept project built for portfolio showcase.
+
+
